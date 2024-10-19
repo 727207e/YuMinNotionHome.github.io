@@ -1,1 +1,717 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>레벨 업 : 유민 스토리</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
+html,
+body {
+	margin: 0;
+	padding: 0;
+  background-color : black;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3661bbc0-df87-4064-823b-392e783ce9e0" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/solid_beige.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🍀</span></div><h1 class="page-title">레벨 업 : 유민 스토리</h1><p class="page-description"></p></header><div class="page-body"><p id="c1d4dc9b-5795-48d9-8cad-66c893e9febc" class="">
+</p><div id="5e438087-9b14-4644-aa8a-6cc3e47e8b97" class="column-list"><div id="ff334838-977f-4057-98f4-e00f966799fb" style="width:25%" class="column"><figure id="50127f92-6f97-4393-ac00-19d377fa38cc" class="image"><a href="%25EB%25B8%2594%25EB%25A3%25A8.jpg"><img style="width:165.484375px" src="%25EB%25B8%2594%25EB%25A3%25A8.jpg"/></a></figure></div><div id="8b374069-71eb-4cf4-a198-79a803b9d094" style="width:75%" class="column"><h2 id="c0c9029c-10a3-44bb-b74b-f1f42a6816c0" class="">안녕하세요. 게임 프로그래머 “최유민”입니다.</h2><p id="96ed2531-ea63-4288-9339-5b5326b35c9d" class="">
+</p><p id="46369d76-4826-4d1e-9743-9b8a5bd8f544" class=""><mark class="highlight-brown_background">2년차 게임 컨텐츠 프로그래머</mark>로 <mark class="highlight-brown_background">유니티 엔진</mark>을 활용해 VR 메타버스 환경을 구축하고 다양한 컨텐츠로 개발해왔습니다. 현재 <mark class="highlight-brown_background">언리얼 엔진</mark>을 활용한 게임 개발을 하고 있습니다.</p><p id="59d17f8f-4e2f-498f-a1c1-46bdf8990406" class="">
+</p></div></div><h1 id="6702a63e-9099-46eb-8e09-e0c4f9c79513" class="">📫 Contact &amp; Channels</h1><figure id="99c20ba1-525a-4505-a65e-362617d4101f" class="image"><a href="Line_1_(1).png"><img style="width:703.125px" src="Line_1_(1).png"/></a></figure><ul id="6fe771d4-9f1d-4924-852d-20825a83bd15" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue_background"><strong>Email</strong></mark><strong> </strong>| potapu5@naver.com</li></ul><ul id="62b64b15-7726-4360-85e0-bcd1da9584cf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue_background"><strong>Github</strong></mark> |<strong> </strong><a href="https://github.com/727207e">https://github.com/727207e</a></li></ul><ul id="ec72ec92-a46e-4656-bbc5-ba07d758eb76" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue_background"><strong>Blog</strong></mark> |<strong> </strong><a href="https://dev07eblog.tistory.com/">https://dev07eblog.tistory.com/</a></li></ul><p id="0a127991-c18e-48fa-9a13-e6685f7c4b8f" class="">
+</p><p id="f86f1e86-008e-4848-8ba2-65e82ff3936d" class="">
+</p><h1 id="fc200f64-6d6d-4488-86a5-a713898d4844" class="">🔎 Profile</h1><figure id="3305914b-d254-4130-b420-25d604ad7e17" class="image"><a href="Line_1_(1).png"><img style="width:703.125px" src="Line_1_(1).png"/></a></figure><div id="d3afa064-2f50-46c9-8207-e92b9013d268" class="column-list"><div id="bb530f81-db08-41e7-86df-7a5be9fa6be0" style="width:50%" class="column"><h3 id="2bce5e81-cbe2-49e2-99ba-0afd3675fe15" class="">경력  <mark class="highlight-gray">(총 1년 10개월)</mark></h3><p id="24c8851c-0359-44ca-95f6-d71b52044c98" class="">(주)더블미   <mark class="highlight-gray">2022.04 - 2024.02</mark></p><ul id="10b54331-d818-80b8-9914-e9b9feb5c7b3" class="bulleted-list"><li style="list-style-type:disc">트윈월드2 제작 <ul id="10b54331-d818-80a4-be62-c4cd469155bf" class="bulleted-list"><li style="list-style-type:circle">하단 프로젝트 참고</li></ul></li></ul><p id="d20c42ec-72e7-4f77-80e9-365f5c4d8cfd" class="">
+</p><ul id="10b54331-d818-80ab-b883-d3266fa9c2a4" class="bulleted-list"><li style="list-style-type:disc">서울시설공단 협업 프로젝트 제작 <ul id="12b7a417-1025-4de2-bd2f-9621ecf57796" class="bulleted-list"><li style="list-style-type:circle">하단 프로젝트 참고</li></ul></li></ul><p id="057ff365-9e42-4e0f-a0cc-1d242e799066" class="">
+</p><p id="2e893d1e-54f9-4f9f-b2ed-a9b14dbae2c3" class="">
+</p></div><div id="a2ffe3cd-51f2-4dc6-871d-557f84535849" style="width:50%" class="column"><h3 id="4ccc4631-987e-402d-a6fa-f1f858569d15" class="">학력 </h3><p id="14df35e8-f172-4066-b72e-44c3a77f7fd3" class="">한성대학교 컴퓨터 공학과  <mark class="highlight-gray">2015.03 - 2022.02</mark></p><p id="34dcbf04-6318-4a41-b6d8-21a1858739f2" class="">
+</p><h3 id="98d637b8-f6e1-4efd-97b2-4319a7bbd678" class="">교육</h3><p id="e5215b5e-72f5-4db2-a6e3-bb67c004e53b" class="">SBS게임아카데미 <mark class="highlight-gray">2018.10 - 2019.11</mark></p><p id="9fadc34d-acdf-4208-a296-e53d3a7313d2" class="">게임 프로그래밍 과정 / 유니티 과정</p><p id="b107f9a3-d37c-486f-85f8-7b5467a29fda" class="">DirectX / C# / C++ / C / WinAPI / MFC / Unity</p><p id="5332a786-bddd-4978-b967-e7a99e9a9522" class="">
+</p><h3 id="48f9c36c-92ec-4904-b726-4e0fa3141150" class="">자격증</h3><p id="b6bf3377-da80-4673-b2c3-1f2c10509819" class="">정보처리기능사  <mark class="highlight-gray">2018.02</mark></p><p id="6943fd70-9dbc-4ed8-8c3a-5cf91acf6f8e" class="">정보처리기사  <mark class="highlight-gray">2021.08</mark></p><p id="bf7f6ad3-192e-4917-b307-597a7aa0f5ee" class="">
+</p><h3 id="47972581-95a4-4b08-9827-80c25cba1720" class="">병역</h3><p id="1bc77951-aff7-4ae9-9317-ced5b97f0ea9" class="">공군 병장 제대 <mark class="highlight-gray">2016.10 - 2018.10</mark></p><p id="40b6169a-de09-4457-b423-c9feeea080c0" class="">
+</p></div></div><p id="79e8b8a4-1c01-4318-bdac-ad957ffd1721" class="">
+</p><h1 id="3b82dcdf-06b7-4a92-aacc-014bb115e828" class="">⚒️ Skills</h1><figure id="ab6ae72d-2717-490b-b3db-c82da5b78b67" class="image"><a href="Line_1_(1).png"><img style="width:703.125px" src="Line_1_(1).png"/></a></figure><p id="843e2b80-15de-4839-82a3-037e97a4dae4" class="">역량의 전문성에 따라<strong> </strong><mark class="highlight-blue"><strong>상 </strong></mark><strong>· </strong><mark class="highlight-yellow"><strong>중 · </strong></mark><mark class="highlight-red"><strong>하</strong></mark><mark class="highlight-red"> </mark>수준으로 분류하였습니다.</p><p id="f948c138-3adc-460c-8db7-c05ca5f49034" class="">각 항목을 누르면 상세 내용을 확인할 수 있습니다. </p><div id="1c18e6f1-d86b-4297-93c8-36291ca25749" class="column-list"><div id="81249bc6-c1c4-4eff-a9a5-d5f9e2d267f2" style="width:33.33333333333333%" class="column"><p id="8b6fac8f-d566-4f2f-8b8b-d749f67a6321" class=""><strong>Hard Skills</strong></p><p id="8fbd9293-0d51-4b58-bc27-66a3fa541b06" class=""><mark class="highlight-yellow">Unreal 5</mark><div class="indented"><p id="55b44b34-c25f-4d73-a0f9-b2def6589998" class="">GameplayAbilitySystem</p><p id="d891adf0-e31d-4196-a666-8b090258f64f" class="">Unreal C++</p><p id="31bd8634-0bc5-419d-95a2-253cae5d0f3e" class="">Blueprint</p><p id="4ee1598b-98e4-4f27-9128-7283fa1b1157" class="">MultiPlay</p><p id="d779f818-b1c3-47be-8969-0dc796f0dcbf" class="">UnrealMotionGraphics</p><p id="526b5686-c144-4859-89e9-577238e25435" class="">BlackBoard (Enemy AI)</p><p id="1257c9f7-7db2-4453-a983-4c216359f3fb" class="">Cinematic</p><p id="60d9cba7-ac4f-4ee6-b69f-4a4e9ce706bd" class="">Character Animaion</p><p id="bdf3592c-ebd2-49e3-8c63-d7666aad3e10" class="">
+</p></div></p><p id="f51cf853-fc73-48a0-94d9-a3516a6d4f55" class=""><mark class="highlight-yellow">Unity</mark><div class="indented"><p id="0150ab86-95b7-469c-920a-3fec92791d84" class="">Profiler</p><p id="a846bbcb-e34e-48f5-9c4f-eb5afe54e2c6" class="">Unity Package</p><p id="2df4873e-25fb-46c3-ae38-e73123452f7d" class="">UGUI</p><p id="7410bf5e-f725-46fb-b3ed-75ef7aa3226d" class="">VR Input System</p><p id="eb7bec7e-9b6d-47d6-904d-e849eae37069" class="">URP</p><p id="e4afcf89-3f44-4fc8-b846-1f86f66d17e0" class="">Photon Server</p><p id="d07eed59-700a-481e-be27-e04c72490091" class="">IK Riging</p><p id="3bcb1f9a-5a3b-471c-b518-d7a14f61c909" class="">
+</p></div></p><p id="b9fa455d-b9fe-4b7d-b038-03e4e99fa1bf" class=""><mark class="highlight-yellow">C++</mark><div class="indented"><p id="03ffe93a-6d63-4059-829a-16c779778d02" class="">MemoryManagement (SmartPointer)</p><p id="722ef7cb-3276-43cf-9917-1e5796e1b241" class="">OOP (virtual / Interface)</p><p id="1531d7e1-2645-48ed-8c1e-034383916ab3" class="">Template</p><p id="4b176617-6970-4aaa-b407-ea5faa80d155" class="">Multithreading</p><p id="38f65581-c036-4e05-b47d-3d771692dd6f" class="">Network</p><p id="51834b8a-dbfe-48b8-9f00-1e2271d516f4" class="">(Replicator / UDP/TCP)</p><p id="b742ad30-6eed-4681-b771-82250e723da8" class="">Delegate</p><p id="00283c36-3cd9-460d-b607-43ec1e7a3483" class="">Lambda</p><p id="3e620c96-ae33-46c7-8618-e15c50f76e45" class="">
+</p></div></p><p id="db513edf-c793-4048-b081-7b939a88ddde" class=""><mark class="highlight-yellow">C#</mark><div class="indented"><p id="3dcbf5d2-b257-4f87-af7f-e5b34b09762b" class="">OOP (virtual / Interface)</p><p id="de664723-a7d1-4084-96fe-bb87925a7835" class="">Delegate</p><p id="74750ddb-8129-4be9-9bf9-d66190ef5abb" class="">Lambda</p><p id="9da17f77-1515-42d2-84af-b901188cf93e" class="">Multithreading</p><p id="adb2aeaa-72a6-4e54-a0bf-0f575183630e" class="">Network (RestAPI / PhotonServer)</p><p id="2ea23a00-33c3-4fb5-bc0a-f5b82e87a4d3" class="">
+</p></div></p></div><div id="f019371d-d693-4a81-8554-783a69bd9fdf" style="width:33.33333333333333%" class="column"><p id="c0bfc9ff-ff68-417c-9da1-190b964be40f" class=""><strong>Soft Skills</strong></p><p id="82231fe0-2a0c-4abb-9a90-c0684b5f2d87" class=""><mark class="highlight-blue">커뮤니케이션</mark><div class="indented"><p id="fb2001c3-6756-46c4-938a-b7713945876b" class="">작업 내용 공유</p><p id="9ed4da02-7889-4526-8d53-7858a4cd1c9f" class="">작업 스케줄 조율</p><p id="0f94fed3-12fe-4cc5-a391-6c1ad2748359" class="">명확한 설명 능력</p><p id="ed703989-f62c-4866-b8cb-ff300a80c37a" class="">효과적인 문서 작성</p><p id="2a105508-1327-43c4-a4e2-114c56f4194c" class="">프레젠테이션 기술</p><p id="cca9d0df-4f44-48d2-a796-f3b81b72b6ed" class="">팀 빌딩과 관계 구축</p><p id="e6daeb71-36a7-46fe-90f4-d5d8d2be70c0" class="">
+</p></div></p><p id="206fea86-a8cf-41f6-b67b-8b2c6d2fbc32" class=""><mark class="highlight-blue">꼼꼼함</mark><div class="indented"><p id="c4c97b94-ac5c-493a-b4ad-08374e2e4cab" class="">코드 리뷰</p><p id="c60504ab-41c2-4b40-9368-21b6c01a9d21" class="">Refactoring</p><p id="1c114fcc-c167-45e4-a2e8-76df8475844a" class="">테스트와 디버깅</p><p id="625bb50b-638d-489b-a89b-373056544212" class="">문서화</p><p id="f3b0f744-b57d-4166-ac4c-6e4940517e14" class="">버전관리</p><p id="41cb9171-14df-47d2-b357-21d875a71069" class="">
+</p></div></p><p id="ef77e557-c43a-4439-b6ea-7f054f754836" class=""><mark class="highlight-yellow">리더십</mark><div class="indented"><p id="69034044-afd7-4525-8ac9-5dc94cbaa0da" class="">책임감</p><p id="7f8c7738-2153-423f-bd0c-c72058235281" class="">작업 계획 및 조율</p><p id="baf706ea-e159-4e7d-9fc9-c35f3430ebb3" class="">의사결정 및 문제 해결</p><p id="4d6c5727-6a3d-427b-96bd-300276bc5d4b" class="">커뮤니케이션 및 피드백</p></div></p><p id="34a42ca5-4295-4b94-b007-19c90654a0f2" class="">
+</p></div><div id="9f53ab5e-77ec-4e18-9ac3-b7bca0590efd" style="width:33.33333333333336%" class="column"><p id="581e7f79-e067-40e8-a496-471322f93594" class=""><strong>Tools</strong></p><p id="92c79ede-3a20-44a2-ba21-8285c35385a3" class=""><mark class="highlight-blue">Github</mark><div class="indented"><p id="ba93d662-1b9c-4d58-be58-4559e0774502" class="">Branch</p><p id="c9775fc1-a8c9-470c-b519-2d824276d19c" class="">Merge</p><p id="ba88fe1e-d65c-4426-bdfc-239100ac0499" class="">Fork</p><p id="311162a4-2eec-42dd-959e-30ca8c48d6b2" class="">Check</p><p id="a4c2d82e-d0cb-408e-9e39-9a81fa045926" class="">Commit</p><p id="4d3bc288-55b6-4421-9dfd-7fb192682e76" class="">Push</p><p id="aac01d8c-7a33-433e-b075-f5a0c320f9a9" class="">Pull</p><p id="734a0db2-4b79-44af-9851-6c524be8efe0" class="">
+</p></div></p><p id="731f7807-df17-4fbe-9480-99cb7a591ce3" class=""><mark class="highlight-yellow">Jira</mark><div class="indented"><p id="233838b6-b116-4a59-b9a6-b37b04e122a1" class="">Sprint (Agile)</p><p id="a9533305-d082-4839-a4eb-076955c3130d" class="">Task</p><p id="7d4e9a5a-0d4a-47d9-87dd-54083c3e262d" class="">StoryPoint</p><p id="89f31e80-a75d-4418-8c58-603ec2dc15e7" class="">DairyScrum</p><p id="b41355d6-5fd7-4b25-86a9-01979ddf0a83" class="">
+</p></div></p><p id="cdee7050-af03-4eb6-a5f0-a84812f1d3dc" class=""><mark class="highlight-red">SVN</mark><div class="indented"><p id="c60daa41-8419-4394-bc5f-65cac673e443" class="">Commit</p><p id="0f370204-df6a-4929-9022-5099bc7334e0" class="">Update</p><p id="d8d77354-98b0-4ff6-a5fb-715a782ad1b0" class="">Branch</p><p id="c03ad7c7-5892-4080-b2eb-9104f2ee983c" class="">Merge</p><p id="1bca9e77-831f-4459-9198-bd9266deee94" class="">Revert</p><p id="242090b7-4e13-46dc-92e7-2ef89d84ffee" class="">Head / Base</p><p id="9c4dca9e-1941-43b6-a0c1-408cf78e58d1" class="">
+</p></div></p><p id="f31c3967-7b3e-4d22-a166-ad48925387fb" class=""><mark class="highlight-red">Jenkins</mark><div class="indented"><p id="82a7adc3-afd6-40a2-ad83-1d8155094498" class="">CI/CD</p><p id="d71e44bc-a0d8-4a31-b2f4-60fc09c4e34f" class="">Git Push WebHook</p><p id="e93f92bc-31d8-46cc-b0ae-d9faeb9a3e39" class="">
+</p></div></p><p id="d4207a86-c81f-412f-b7d5-b164c292b60f" class="">
+</p></div></div><p id="8e7acfd2-e5ae-474f-9794-776648afef75" class="">
+</p><h1 id="f4819f38-1a01-499d-9926-95180141145b" class="">👩🏻‍💻 Projects</h1><figure id="82ca4750-d7a5-410f-a073-00b3ca61e9a4" class="image"><a href="Line_1_(1).png"><img style="width:703.125px" src="Line_1_(1).png"/></a></figure><p id="893d5643-be54-4816-8196-168f70ebba94" class="">담당한 프로젝트를 최신순으로 구성했습니다. </p><p id="fe5c66c7-655f-4fe7-9294-5fb5b9302cc5" class="">각 이미지를 누르면 주요 내용 / 역할&amp;기여도 / 기간 등을 확인할 수 있습니다.</p><p id="fcd705bf-77a4-45c9-884c-71c5e93f5b02" class="">
+</p><div id="0df55dbb-967f-48ac-b63c-d38f53ec3004" class="collection-content"><h4 class="collection-title">주요 프로젝트 포트폴리오</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>이름</th></tr></thead><tbody><tr id="f07b1a93-c233-409a-b85c-67f329278a57"><td class="cell-title"><a href="https://www.notion.so/Unreal-UnrealProject-f07b1a93c233409ab85c67f329278a57?pvs=21">[Unreal] UnrealProject</a></td></tr><tr id="c09504e3-e6ab-4da2-902b-1ff78859456d"><td class="cell-title"><a href="https://www.notion.so/Unity-TwinWorld-c09504e3e6ab4da2902b1ff78859456d?pvs=21">[Unity] TwinWorld</a></td></tr><tr id="92eea9d6-d15e-4167-bb08-45000a5d0fc6"><td class="cell-title"><a href="https://www.notion.so/Unity-92eea9d6d15e4167bb0845000a5d0fc6?pvs=21">[Unity] 서울시설공단 메타버스</a></td></tr></tbody></table><br/><br/></div><p id="39ede0cf-2f94-4ed5-ab03-758bd8eb3ec9" class="">
+</p><p id="854c42f3-2489-4d9a-b706-2e017dc7187e" class="">
+</p><h1 id="695624ce-0672-400f-ba30-2ebb0f57feb0" class="">🙋🏻 How I Work</h1><figure id="a5b718cb-fc06-4542-aa27-077c46d5714e" class="image"><a href="Line_1_(1).png"><img style="width:703.125px" src="Line_1_(1).png"/></a></figure><ul id="f191e172-95e3-4971-b574-e133e61759c3" class="bulleted-list"><li style="list-style-type:disc">문제 해결을 위해 지속적인 학습과 연구는 물론, 효과적인 커뮤니케이션도 중요하게 생각합니다.</li></ul><ul id="72012eb2-4378-47a9-a9f0-7ba5c0e92037" class="bulleted-list"><li style="list-style-type:disc">새로운 기술을 적용해 팀원들과 함께 최상의 결과물을 만들어냅니다.</li></ul><ul id="50da6b06-6156-4b0a-a152-06c09d6e8536" class="bulleted-list"><li style="list-style-type:disc">함께 정한 기한은 반드시 지키려고 노력합니다.</li></ul><ul id="aa9fe9db-6f84-441f-8ed3-c39b7303b29e" class="bulleted-list"><li style="list-style-type:disc">명확하고 체계적인 문서화를 통해 프로젝트의 진행 상황과 결과를 투명하게 공유합니다.</li></ul><ul id="b556d3d1-0c9f-4afe-ae4c-8a80de20fb32" class="bulleted-list"><li style="list-style-type:disc">팀의 성과를 높이기 위해 피드백을 수용하고 이를 바탕으로 작업 방식을 개선해 나아갑니다. </li></ul><p id="10d54331-d818-80cc-811d-e4d2f1ff6eab" class="">
+</p><p id="10d54331-d818-8028-809a-d5c67424bf5f" class="">
+</p><h1 id="10d54331-d818-800a-9b95-dfea5b57442b" class="">📣 자기 소개서</h1><figure id="10d54331-d818-8010-a864-fbd30dc93af1" class="image"><a href="Line_1_(1).png"><img style="width:703.125px" src="Line_1_(1).png"/></a></figure><p id="10d54331-d818-80da-a984-e03e6ea237f1" class="">저는 평소에도 게임을 즐겨하며, 새로운 게임을 접할 때마다 이를 직접 만들어 보고 싶다는 꿈을 꾸었습니다. 과거 &quot;달빛 조각사&quot;라는 소설을 읽으며 꼭 이런 게임을 만들겠다는 꿈을 가지고 게임 개발자가 되었습니다.</p><p id="10d54331-d818-8011-bdfe-d8a4959b64ce" class="">프로그래머가 되어 일을 하면서 단순하게 프로그램만 잘하면 되는 것이 아니라는 것을 느꼈습니다. 팀원과의 소통으로 프로젝트가 좋은 방향으로 갈 수 있도록 노력해야 하고, 프로젝트 관리를 위해서 문서화가 중요하다는 것 또한 배웠습니다. 이를 바탕으로 프로그래밍뿐만 아니라 그 외에 팀원과의 소통을 위해 노력하는 개발자입니다. </p><p id="10d54331-d818-8041-880d-f38b8a8f0330" class="">또한 게임 개발자는 끊임없이 공부해야 하는 직업이라고 생각합니다. 따라서 항상 최신 기술 동향을 파악하고, 자신의 부족한 점을 보완하려 노력할 것입니다. 이런 자세로 10년 뒤에는 업계에서 인정받는 베테랑 개발자가 되어 있을 것이라 확신합니다.</p><p id="10d54331-d818-8049-bb8c-f071bfd23b12" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
